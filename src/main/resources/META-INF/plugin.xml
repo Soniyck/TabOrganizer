@@ -1,0 +1,10 @@
+<idea-plugin>
+    <id>com.soniyck.taborganizer</id>
+    <name>Tab Organizer</name>
+    <version>1.0</version>
+    <vendor email="antonin.houdek8@gmail.com" url="https://github.com/Soniyck">Soniyck</vendor>
+
+    <applicationListeners>
+        <listener class="com.soniyck.taborganizer.TabOrganizerManager" topic="com.intellij.openapi.fileEditor.FileEditorManagerListener"/>
+    </applicationListeners>
+</idea-plugin>
