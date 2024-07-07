@@ -6,7 +6,7 @@ As a former VS user I got used to having the tabs in vertical split (left panel)
 this feature allows you to do that.
 
 ### Examples
-
+![plugin example](plugin-example.jpg "Plugin example")
 
 ### Installation
 The plugin works right of the box, no need to set up anything.

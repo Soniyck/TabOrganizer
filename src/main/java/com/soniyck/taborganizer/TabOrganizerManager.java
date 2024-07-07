@@ -42,21 +42,30 @@ public class TabOrganizerManager implements FileEditorManagerListener {
         }
     }
 
+    @Override
+    public void fileClosed(@NotNull FileEditorManager manager, @NotNull VirtualFile file) {
+        var windows = ((FileEditorManagerEx)manager).getWindows();
+        for (var window : windows) {
+            reorderTabsInWindow(window, file);
+        }
+    }
+
     private void reorderTabsInWindow(EditorWindow window, VirtualFile file) {
         // Automatically set placement to left
         window.setTabsPlacement(SwingConstants.LEFT);
 
         // Logging for debugging => delete
-        logTabsArray(window.getTabbedPane().getTabs().getTabs(), "Unordered tabs:");
+        //logTabsArray(window.getTabbedPane().getTabs().getTabs(), "Unordered tabs:");
 
         // Order the opened files
         VirtualFile[] orderedFiles = window.getFiles();
         Arrays.sort(orderedFiles, comparer);
 
-        logFilesArray(orderedFiles, "Ordered files:");
+        // Logging for debugging => delete
+        //logFilesArray(orderedFiles, "Ordered files:");
 
         // Logging for debugging => delete
-        logTabsArray(window.getTabbedPane().getTabs().getTabs(), "Unordered tabs:");
+        //logTabsArray(window.getTabbedPane().getTabs().getTabs(), "Unordered tabs:");
 
         // Get the tab editor component
         var tabEditor = window.getTabbedPane();
@@ -110,10 +119,10 @@ public class TabOrganizerManager implements FileEditorManagerListener {
         }
 
         // Logging for debugging => delete
-        logGroups(groups, "Groups:");
+        //logGroups(groups, "Groups:");
 
         // Logging for debugging => delete
-        logTabsArray(window.getTabbedPane().getTabs().getTabs(), "Ordered tabs:");
+        //logTabsArray(window.getTabbedPane().getTabs().getTabs(), "Ordered tabs:");
     }
 
     private static TabInfo createDividerTab(EditorWindow window, JComponent component, String title) {
