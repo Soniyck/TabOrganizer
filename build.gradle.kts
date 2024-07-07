@@ -5,17 +5,15 @@ plugins {
 }
 
 group = "com.soniyck"
-version = "1.0-SNAPSHOT"
+version = "0.9"
 
 repositories {
     mavenCentral()
 }
 
 intellij {
-    // Define the version of IntelliJ IDEA you are targeting
-    version.set("2024.1")
-    type.set("RD")
-    // plugins.set(listOf("com.jetbrains.rider"))
+    version.set("2023.3")
+    type.set("IC")
 }
 
 dependencies {
@@ -33,6 +31,9 @@ tasks {
     }
 
     patchPluginXml {
+        version.set("2023.3")
+        sinceBuild.set("233")
+        untilBuild.set("241.*")
     }
 
     signPlugin {
