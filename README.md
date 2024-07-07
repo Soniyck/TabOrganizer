@@ -7,8 +7,10 @@ this feature allows you to do that.
 
 ### Examples
 ![plugin example](plugin-example.jpg "Plugin example")
+![plugin example 2](plugin-example2.jpg "Plugin example 2")
 
 ### Installation
+Currently, the plugin is built for Rider. If someone would like to publish for other apps too, let me know.
 The plugin works right of the box, no need to set up anything.
 
 ### TODO

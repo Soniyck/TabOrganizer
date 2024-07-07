@@ -14,12 +14,13 @@ repositories {
 intellij {
     // Define the version of IntelliJ IDEA you are targeting
     version.set("2024.1")
-    type.set("IC") // Target IDE Platform: IC = IntelliJ IDEA Community, IU = IntelliJ IDEA Ultimate, etc.
-    plugins.set(listOf("java"))
+    type.set("RD")
+    // plugins.set(listOf("com.jetbrains.rider"))
 }
 
 dependencies {
     implementation(kotlin("stdlib"))
+    implementation("org.jetbrains:marketplace-zip-signer:0.1.24")
     // Add any additional dependencies you need here
 }
 
@@ -32,8 +33,14 @@ tasks {
     }
 
     patchPluginXml {
-        sinceBuild.set("231")
     }
+
+    signPlugin {
+        certificateChainFile.set(file("certificate/chain.crt"))
+        privateKeyFile.set(file("certificate/private.pem"))
+        password.set("xxxx")
+    }
+
     publishPlugin {
         token.set(System.getenv("PUBLISH_TOKEN"))
     }
